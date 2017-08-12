@@ -1,21 +1,26 @@
-<div class="container-fluid" style="height:100%; background-color:#F5F3EE;">
-  <div class="container" style="width:75%">
-      <input class="form-control form-control-lg" id="userInput" style="margin-top:25%" type="text" placeholder="What are you looking for?">
-      </input>
-    <div class="row">
+<body style="background-color:#F5F3EE;">
+  <div class="container">
+    <form class="form-inline">      
+        <input class="form" id="userInput" style="margin-top:25%; width:75%" type="text" placeholder="What are you looking for?">
+        </input>
+        <select class="form" id="count" style="width:24%">
+      <option>5 results</option>
+      <option>10 results</option>
+      <option>15 results</option>
+      <option>20 results</option>
+    </select>
+    </form>
+    <div class="row" style="margin-top:10px;">
       <div class="col-xs-6">
-      <button class="btn btn-primary btn-responsive" id="searchButton" style="width:100%;">Search
-    </button>
-  </div>
-    <div class="col-xs-6">
-    <button class="btn btn-primary btn-responsive" id="randomButton" style="width:100%;">Random
+        <button class="btn btn-primary btn-responsive" id="searchButton" style="width:100%;">Search
     </button>
       </div>
+      <div class="col-xs-6">
+        <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank"><button class="btn btn-primary btn-responsive" id="randomButton" style="width:100%;"> Random
+          </button></a>
+      </div>
     </div>
-  <div id="wiki_article" style="margin-top:25px"> 
+    <div class="container" id="wiki_article" style="margin-top:25px;">
+    </div>
   </div>
-  <div id="wiki_article2" style="margin-top:25px"> 
-  </div>
-</div>
-</div>
-
+</body>

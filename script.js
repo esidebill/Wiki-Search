@@ -1,30 +1,30 @@
 $(document).ready(function() {
   function search() {
+    $("#wiki_article").html("");
     var userInput = $("#userInput").val();
-    var wiki_img_api = "https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&callback=?&titles=" + userInput;
+    var pageCount = $("#count").val();
     var wiki_api =
-      "https://en.wikipedia.org/w/api.php?action=query&rvprop=content&prop=extracts&exsentences=3&format=json&callback=?&titles=" + userInput;
+      "https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&callback=?&srlimit=" +
+      pageCount +
+      "&srsearch=" +
+      userInput;
     $.getJSON(wiki_api, function(data) {
-      $.each(data.query.pages, function(i, data) {
-        $("#wiki_article").html(data.extract);
-      });
+      for (i = 0; i < 20; i++) {
+        $("#wiki_article").append(
+          "<a href='https://en.wikipedia.org/wiki/" +
+            data.query.search[i].title +
+            "' target='_blank'><div class='well'><strong>" +
+            data.query.search[i].title +
+            "</strong><br>" +
+            data.query.search[i].snippet +
+            "<br>" +
+            "</div></a>"
+        );
+      }
     });
-    $.getJSON(wiki_img_api, function(data) {
-      $.each(data.query.pages, function(i, data) {
-        var img_link = data.thumbnail.source;
-        $("#wiki_article2").html(img_link.replace("/",""));
-      });
-    });
-  }
-  function randomSearch() {
-    var randomWiki = "https://en.wikipedia.org/wiki/Special:Random";
   }
 
   $("#searchButton").on("click", function() {
     search();
-  });
-
-  $("#randomButton").on("click", function() {
-    randomSearch();
   });
 });
