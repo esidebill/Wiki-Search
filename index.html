@@ -1,15 +1,19 @@
 <body style="background-color:#F5F3EE;">
   <div class="container">
-    <form class="form-inline">      
-        <input class="form" id="userInput" style="margin-top:25%; width:75%" type="text" placeholder="What are you looking for?">
+    <div class="row" style="margin-top:25%">
+      <div class="col-xs-8">
+        <input class="form-control" id="userInput" type="text" placeholder="What are you looking for?">
         </input>
-        <select class="form" id="count" style="width:24%">
+      </div>
+    <div class="col-xs-4">
+        <select class="form-control" id="count">
       <option>5 results</option>
       <option>10 results</option>
       <option>15 results</option>
       <option>20 results</option>
     </select>
-    </form>
+    </div>
+  </div>
     <div class="row" style="margin-top:10px;">
       <div class="col-xs-6">
         <button class="btn btn-primary btn-responsive" id="searchButton" style="width:100%;">Search
